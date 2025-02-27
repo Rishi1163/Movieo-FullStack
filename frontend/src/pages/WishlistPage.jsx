@@ -9,7 +9,7 @@ const WishlistPage = () => {
 
     // Fetch movie details using new hook
     const { data: wishlistDetails, loading } = useFetchWishlistDetails(wishlist);
-    console.log(wishlistDetails);
+    // console.log(wishlistDetails);
     return (
         <div className="mt-16">
             <div className="p-3">
