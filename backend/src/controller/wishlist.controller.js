@@ -1,5 +1,5 @@
 import { UserModel } from "../Models/user.models.js";
-import { WishlistModel }from "../Models/Wishlist.js"; 
+import { WishlistModel }from "../Models/wishlist.models.js"; 
 import { catchError } from "../utils/cathcError.js"; 
 
 export const addToWishlist = async (req, res) => {
