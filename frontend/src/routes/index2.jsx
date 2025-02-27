@@ -7,7 +7,7 @@ import DetailsPage from '../pages/DetailsPage'
 import Login from '../pages/Login'
 import { ProtectedRoute } from './ProtectedRoute'
 import Register from '../pages/Register'
-import WishilistPage from '../pages/WishilistPage'
+import WishilistPage from '../pages/WishlistPage'
 
 
 const routerr = createBrowserRouter([
