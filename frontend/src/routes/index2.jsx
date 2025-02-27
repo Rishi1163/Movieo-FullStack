@@ -5,7 +5,7 @@ import ExplorePage from '../pages/ExplorePage'
 import SearchPage from '../pages/SearchPage'
 import DetailsPage from '../pages/DetailsPage'
 import Login from '../pages/Login'
-import { ProtectedRoute } from './protectedRoute'
+import { ProtectedRoute } from './ProtectedRoute'
 import Register from '../pages/Register'
 import WishilistPage from '../pages/WishilistPage'
 
