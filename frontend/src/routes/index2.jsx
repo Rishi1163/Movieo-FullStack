@@ -7,7 +7,7 @@ import DetailsPage from '../pages/DetailsPage'
 import Login from '../pages/Login'
 import { ProtectedRoute } from './ProtectedRoute'
 import Register from '../pages/Register'
-import WishilistPage from '../pages/WishlistPage'
+import WishlistPage from '../pages/WishlistPage'
 
 
 const routerr = createBrowserRouter([
@@ -44,7 +44,7 @@ const routerr = createBrowserRouter([
                     },
                     {
                         path : "wishlist",
-                        element : <WishilistPage />
+                        element : <WishlistPage />
                     }
                 ]
             }
