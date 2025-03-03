@@ -18,7 +18,7 @@ const userSlice = createSlice({
             state.email = action.payload?.email
             state.username = action.payload?.username
             state.last_login_date = action.payload?.last_login_date
-            state.wishliast = action.payload?.wishlist
+            state.wishlist = action.payload?.wishlist
             state.review = action.payload?.review
         },
         logout : (state) => {
