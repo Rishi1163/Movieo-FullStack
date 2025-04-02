@@ -48,14 +48,14 @@ const Login = () => {
                 localStorage.setItem("accessToken", res.data.data.accessToken);
                 localStorage.setItem("refreshToken", res.data.data.refreshToken);
     
-                // ✅ Fetch user details
+                //  Fetch user details
                 const userDetails = await fetchUserDetails();
                 if (userDetails) {
                     dispatch(setUserDetails(userDetails.data));
                     localStorage.setItem("user", JSON.stringify(userDetails.data));
                 }
     
-                // ✅ Fetch wishlist
+                //  Fetch wishlist
                 const wishlistRes = await Axios({
                     ...summaryApi.getWishlist,
                     headers: {
@@ -63,7 +63,7 @@ const Login = () => {
                     }
                 });
     
-                // ✅ If data exists, update wishlist, else set empty array
+                // If data exists, update wishlist, else set empty array
                 if (wishlistRes.data.success) {
                     dispatch(setWishlist(wishlistRes.data.data || []));
                 } else {
@@ -76,8 +76,6 @@ const Login = () => {
             AxiosToastError(error);
         }
     };
-    
-    
 
     return (
         <section className="w-full min-h-screen h-full mx-auto px-2 py-5 relative my-2">

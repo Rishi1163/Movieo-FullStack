@@ -11,7 +11,7 @@ const Home = () => {
   const trendingMovies = useSelector(state => state.movieData.bannerData)
   const { data : nowPlayingData } = useFetch('/movie/now_playing')
   const { data : topReatedData } = useFetch('/movie/top_rated')
-  const { data : populatTvShowData } = useFetch('/tv/popular')
+  const { data : popularTvShowData } = useFetch('/tv/popular')
   const { data : onAirData } = useFetch('/tv/on_the_air')
 
   return (
@@ -20,7 +20,7 @@ const Home = () => {
       <HorizontalScrollCard data={trendingMovies} heading={"Trending"} trending={true}/>
       <HorizontalScrollCard data={nowPlayingData} heading={"Now Playing"} media_type={'movie'}/>
       <HorizontalScrollCard data={topReatedData} heading={"Top Rated"} media_type={'movie'}/>
-      <HorizontalScrollCard data={populatTvShowData} heading={"Popular Tv Shows"} media_type={'tv'}/>
+      <HorizontalScrollCard data={popularTvShowData} heading={"Popular Tv Shows"} media_type={'tv'}/>
       <HorizontalScrollCard data={onAirData} heading={"Upcoming Shows"} media_type={'tv'}/>
     </div>
   )

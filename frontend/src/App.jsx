@@ -12,7 +12,7 @@ import { setUserDetails } from './store/userSlice';
 import { Axios } from './utils/Axios';
 import { summaryApi } from './common/summaryApi';
 import { setWishlist } from './store/wishlistSlice';
-import { AxiosToastError } from './utils/AxiosToastError';  // ✅ Importing missing function
+import { AxiosToastError } from './utils/AxiosToastError';  // Importing missing function
 import { fetchWishlist } from './utils/fetchWishlist';
 
 
@@ -46,24 +46,6 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   const loadWishlist = async () => {
-  //     try {
-  //       const res = await Axios(summaryApi.getUserWishlist);
-  //       console.log('Wishlist Data from API:', res.data);
-  //       if (res.data.success) {
-  //         console.log('Dispatching Wishlist:', res.data.data);
-  //         dispatch(setWishlist(res.data.data));
-  //         console.log('Wishlist after Dispatch:', res.data.data);
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   loadWishlist();
-  // }, [dispatch]);
-
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -73,7 +55,7 @@ function App() {
     fetchTrending();
     fetchConfig();
     fetchWishlist(dispatch)
-  }, [dispatch]); // ✅ Added `dispatch` to the dependency array to avoid lint warnings
+  }, [dispatch]);
 
   return (
     <div className="pb-14 lg:pb-0">

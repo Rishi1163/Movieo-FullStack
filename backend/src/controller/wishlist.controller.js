@@ -18,7 +18,7 @@ export const addToWishlist = async (req, res) => {
         let wishlist = await WishlistModel.findOne({ userId });
 
         if (!wishlist) {
-            // ✅ Create a new wishlist if the user doesn't have one
+            //  Create a new wishlist if the user doesn't have one
             wishlist = await WishlistModel.create({
                 userId,
                 items: [{ movieId, mediaType }]
@@ -36,7 +36,7 @@ export const addToWishlist = async (req, res) => {
             });
         }
 
-        // ✅ Check if the movie/TV show is already in the wishlist
+        //  Check if the movie/TV show is already in the wishlist
         const alreadyExists = wishlist.items.some(item => item.movieId === movieId);
         if (alreadyExists) {
             return res.status(400).json({
@@ -46,7 +46,7 @@ export const addToWishlist = async (req, res) => {
             });
         }
 
-        // ✅ Add item to wishlist
+        //  Add item to wishlist
         wishlist.items.push({ movieId, mediaType });
         await wishlist.save();
 
@@ -92,7 +92,7 @@ export const removeFromWishlist = async (req, res) => {
             });
         }
 
-        // ✅ Remove the item from the array
+        // Remove the item from the array
         wishlist.items.splice(movieIndex, 1);
         await wishlist.save();
 
@@ -127,7 +127,7 @@ export const getUserWishlist = async (req, res) => {
             message: "Wishlist fetched successfully!",
             error: false,
             success: true,
-            data: reversedItems   // ✅ Return only the items array
+            data: reversedItems   // Return only the items array
         });
     } catch (error) {
         catchError(res, error);

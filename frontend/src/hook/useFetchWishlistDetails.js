@@ -10,26 +10,26 @@ const useFetchWishlistDetails = (wishlist) => {
             try {
                 setLoading(true);
 
-                // ✅ Ensure wishlist is valid
+                //  Ensure wishlist is valid
                 if (!wishlist || wishlist.length === 0) {
                     setData([]);
-                    setLoading(false); // ✅ Set loading to false before returning
+                    setLoading(false); // Set loading to false before returning
                     return;
                 }
 
-                // ✅ Construct API endpoints correctly
+                //  Construct API endpoints correctly
                 const endpoints = wishlist
                     .filter((item) => item.mediaType && item.movieId)
                     .map((item) =>
-                        `https://api.themoviedb.org/3/${item.mediaType === "movie" ? "movie" : "tv"}/${item.movieId}?api_key=YOUR_API_KEY`
+                        `https://api.themoviedb.org/3/${item.mediaType === "movie" ? "movie" : "tv"}/${item.movieId}?api_key=${import.meta.env.VITE_TMDB_API_KEY}`
                     );
 
-                // ✅ Fetch data with individual error handling
+                //  Fetch data with individual error handling
                 const responses = await Promise.allSettled(
                     endpoints.map((endpoint) => axios.get(endpoint))
                 );
 
-                // ✅ Filter successful requests
+                //  Filter successful requests
                 const successfulData = responses
                     .filter((res) => res.status === "fulfilled")
                     .map((res) => res.value.data);
@@ -44,7 +44,7 @@ const useFetchWishlistDetails = (wishlist) => {
         };
 
         fetchData();
-    }, [wishlist]); // ✅ Use wishlist as dependency (without JSON.stringify)
+    }, [wishlist]); // Use wishlist as dependency (without JSON.stringify)
 
     return { data, loading };
 };

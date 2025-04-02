@@ -97,7 +97,7 @@ export const loginUser = async (req,res) => {
         res.cookie("accessToken",accessToken,cookieOptions)
         res.cookie("refreshToken",refreshToken,{
             ...cookieOptions,
-            maxAge : 7 * 24 * 60 * 60 * 1000
+            maxAge : 30 * 24 * 60 * 60 * 1000
         })
 
         res.status(200).json({
@@ -179,7 +179,7 @@ export const refreshToken = async(req,res) => {
             }
         })
     } catch (error) {
-        catchError(res,error)
+        catchError(res.error)
     }
 }
 
